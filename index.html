@@ -1,10 +1,27 @@
 <html>
-  <body style="margin: 0px; overflow: hidden">
-    <div
-      style="position: absolute; background-color: red; top: 2rem; left: 2rem"
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <main
+      class="flex flex-col gap-8 items-center justify-center w-screen h-screen bg-slate-200"
     >
-      <a href="/portrait.html" id="nft2-btn">NFT 2</a>
-      <a href="/landscape.html" id="nft3-btn">NFT 3</a>
-    </div>
+      <h1 class="font-bold text-2xl">Please select your preference:</h1>
+      <div class="space-x-4">
+        <a
+          href="/portrait.html"
+          class="bg-blue-500 hover:bg-blue-600 py-2 px-8 font-bold text-white rounded-md"
+          id="nft2-btn"
+          >Portrait</a
+        >
+        <a
+          href="/landscape.html"
+          class="bg-green-500 hover:bg-green-600 py-2 px-8 font-bold text-white rounded-md"
+          id="nft3-btn"
+          >Landscape</a
+        >
+      </div>
+    </main>
   </body>
 </html>
