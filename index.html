@@ -11,7 +11,6 @@
       },
       tick: function () {
         if (this.marker.object3D.visible && !this.visible) {
-          console.log('ding');
           this.soundEl.components.sound.stopSound(); // stop if playing
           this.soundEl.components.sound.playSound(); // play
           this.visible = true; // make sure it plays only once per visible
@@ -33,6 +32,7 @@
     >
       <a-assets>
         <a-asset-item id="ramadan" src="./nft/nft3.gltf"></a-asset-item>
+        <a-asset-item id="ramadan2" src="./nft/nft2.gltf"></a-asset-item>
       </a-assets>
       <a-assets>
         <audio id="sound" src="bgm.mp3" preload="auto"></audio>
@@ -62,6 +62,7 @@
         smoothThreshold="5"
       >
         <a-entity
+          id="entity"
           position="0 1 -5"
           scale="0.35 0.35 0.35"
           gltf-model="#ramadan"
@@ -80,5 +81,28 @@
       <source src="bgm.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio> -->
+
+    <section
+      style="position: absolute; background-color: red; top: 0; left: 2rem"
+    >
+      <button id="nft2">NFT 2</button>
+      <button id="nft3">NFT 3</button>
+    </section>
   </body>
+  <script>
+    const entityElement = document.querySelector('#entity');
+    const btn2 = document.querySelector('#nft2');
+    const btn3 = document.querySelector('#nft3');
+
+    console.log(btn2, btn3);
+
+    const setModel = (assetId) => {
+      entityElement.setAttribute('gltf-model', assetId);
+      console.log(assetId, entityElement);
+    };
+
+    btn2.addEventListener('click', setModel('#ramadan2'));
+    btn3.addEventListener('click', setModel('#ramadan'));
+    console.log(entityElement, 'THIS IS MARKER ELEMENT');
+  </script>
 </html>
