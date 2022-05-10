@@ -25,6 +25,15 @@
         }
       },
     });
+
+    AFRAME.registerComponent('fit', {
+      init: function () {
+        const distance = this.el.object3D.position.distanceTo(0);
+        var height = window.innerHeight;
+        var newFov = 2 * Math.atan(height / 2 / distance) * (180 / Math.PI); // in degrees
+        this.el.sceneEl.camera.fov = newFov;
+      },
+    });
   </script>
 
   <body style="margin: 0px; overflow: hidden">
@@ -32,8 +41,9 @@
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
       soundHandler
+      style="width: 100vw; height: 100vh"
     >
       <a-assets>
         <a-asset-item id="ramadan" src="./nft/nft3.gltf"></a-asset-item>
@@ -65,7 +75,13 @@
       <a-entity sound="src: #sound" autoplay="false"></a-entity>
 
       <!-- <a-sound src="#sound"></a-sound> -->
-      <a-entity camera></a-entity>
+      <a-entity
+        camera
+        style="width: 100vw; height: 100vh"
+        look-controls
+        position="0 0 0 0"
+        fit
+      ></a-entity>
     </a-scene>
 
     <div style="position: absolute; top: 2rem; left: 2rem">
