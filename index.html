@@ -1,26 +1,58 @@
 <html>
-  <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  <style lang="css">
+    body {
+      width: 100vw;
+    }
+
+    .container {
+      display: grid;
+      place-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 52px;
+    }
+
+    .gap {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 8px 24px;
+      border-radius: 8px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .blue {
+      background-color: #3564e6;
+    }
+
+    .blue:hover {
+      background-color: #2d36dd;
+    }
+
+    .green {
+      background-color: #25b42a;
+    }
+
+    .green:hover {
+      background-color: #1b831f;
+    }
+  </style>
 
   <body>
-    <main
-      class="flex flex-col gap-8 items-center justify-center w-screen h-screen bg-slate-200"
-    >
-      <h1 class="font-bold text-2xl">Please select your preference:</h1>
-      <div class="space-x-4">
-        <a
-          href="/portrait.html"
-          class="bg-blue-500 hover:bg-blue-600 py-2 px-8 font-bold text-white rounded-md"
-          id="nft2-btn"
-          >Portrait</a
-        >
-        <a
-          href="/landscape.html"
-          class="bg-green-500 hover:bg-green-600 py-2 px-8 font-bold text-white rounded-md"
-          id="nft3-btn"
-          >Landscape</a
-        >
+    <main class="container">
+      <h1 class="title">Please select your preference:</h1>
+      <div class="gap">
+        <a href="/portrait.html" class="btn blue" id="nft2-btn">Portrait</a>
+        <a href="/landscape.html" class="btn green" id="nft3-btn">Landscape</a>
       </div>
     </main>
   </body>
