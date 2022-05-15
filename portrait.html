@@ -4,15 +4,15 @@
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
   <script>
-    AFRAME.registerComponent("soundhandler", {
+    AFRAME.registerComponent('soundhandler', {
       init: function () {
-        this.soundEl = document.querySelector("[sound]");
-        this.marker = document.querySelector("a-marker");
+        this.soundEl = document.querySelector('[sound]');
+        this.marker = document.querySelector('a-marker');
         this.visible = false;
       },
       tick: function () {
         if (this.marker.object3D.visible && !this.visible) {
-          console.log("ding");
+          console.log('ding');
           this.soundEl.components.sound.stopSound(); // stop if playing
           this.soundEl.components.sound.playSound(); // play
           this.visible = true; // make sure it plays only once per visible
@@ -56,9 +56,8 @@
 
       <a-marker
         id="entityContainer"
-        type="pattern"
-        preset="custom"
-        url="./pattern-simple-ar-logo.patt"
+        type="hiro"
+        preset="hiro"
         smooth="true"
         smoothCount="6"
         smoothTolerance=".01"
@@ -66,8 +65,8 @@
       >
         <a-entity
           id="entityHolder"
-          position="0 1 -1.25"
-          scale="0.6 0.6 0.6"
+          position="0 0 -2"
+          scale="0.6285 0.6285 0.6285"
           gltf-model="#ramadan2"
           animation-mixer
         ></a-entity>
